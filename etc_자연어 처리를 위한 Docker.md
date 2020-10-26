@@ -57,3 +57,48 @@ $ curl https://dumps.wikimedia.org/kowiki/latest/kowiki-latest-pages-articles.xm
 
 
 
+## 4. 기타 
+
+### 4.1 컨테이너 및 이미지 삭제
+
+실행 중인 컨테이너가 사용하고 있는 이미지를 삭제하고 싶을 때는, 컨테이너의 실행을 우선 종료해야 한다.
+
+```shell
+$ docker rm [컨테이너 ID] # container 삭제
+$ docker rm `docker ps -a -q` # 존재하는 모든 container 모두 삭제
+$ docker rmi [이미지 ID] # 이미지 삭제
+$ docker images # 이미지가 제대로 삭제되었는지 확인
+```
+
+### 4.2 컨테이너 일시중지 및 실행 종료
+
+```shell
+$ docker container pause [컨테이너 name] # 실행 중인 container 일시정지
+$ docker container stop [컨테이너 name] # container 실행 중지
+$ docker ps # container가 실행 중지되었는지 확인
+```
+
+### 4.3 컨테이너 재실행 
+
+```shell
+$ docker container restart [컨테이너 name] # 실행 종료한 container 재실행
+# backend에서만 실행되므로 container 안에서 명령어를 입력 & 실행하려면 접근 명령어가 필요
+
+$ docker container attach [컨테이너 name] # 실행 중인 container에 접근, 연결
+# 명령어 입력이 가능해진다
+# exit를 입력할 경우 - container 실행 종료
+# Ctrl+p, Ctrl+q 연속으로 입력할 경우 - container 연결만 해제, container는 여전히 실행 상태
+```
+
+ 
+
+
+
+## 참조
+
+https://www.44bits.io/ko/post/easy-deploy-with-docker
+
+https://brunch.co.kr/@hopeless/10
+
+https://nirsa.tistory.com/57?category=868315
+
