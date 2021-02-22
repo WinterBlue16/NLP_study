@@ -24,7 +24,7 @@
   
 
   ```shell
-$ sudo apt-get update 
+  $ sudo apt-get update 
   $ sudo apt install python 
   $ python --version
   $ sudo apt install python3-pip
